@@ -1,0 +1,32 @@
+spring:
+  application.name: resilience4j_circuit_breaker
+  jackson.serialization.indent_output: true
+
+management:
+  endpoints.web.exposure.include:
+    - '*'
+  endpoint.health.show-details: always
+  health.circuitbreakers.enabled: true
+
+resilience4j.circuitbreaker:
+  configs:
+
+#    Can use a default config or provide a specific config for a circuit breaker
+#    default:
+#      registerHealthIndicator: true
+#      slidingWindowSize: 10
+#      minimumNumberOfCalls: 5
+#      permittedNumberOfCallsInHalfOpenState: 3
+#      automaticTransitionFromOpenToHalfOpenEnabled: true
+#      waitDurationInOpenState: 5s
+#      failureRateThreshold: 50
+#      eventConsumerBufferSize: 10
+    activity_service_circuit_breaker:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
